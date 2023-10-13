@@ -1,12 +1,12 @@
 {
-    "name": "logseq-plugin-template-typescript",
+    "name": "logseq-plugin-bullet-point-custom-icon",
     "description": "A template for Logseq plugin written in TypeScript",
-    "repository": "https://github.com/YU000jp/logseq-plugin-template-typescript.git",
+    "repository": "https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon.git",
     "author": "YU000jp",
     "license": "MIT",
     "logseq": {
-        "id": "template-typescript",
-        "title": "Template TypeScript",
+        "id": "bullet-point-custom-icon",
+        "title": "Bullet Point Custom Icon",
         "icon": "./icon.svg",
         "main": "./dist/index.html"
     },

@@ -1,0 +1,121 @@
+/*箇条書きとしてのアイコン。 #@folder、#@query などのタグが付いたすべてのブロックにアイコンが表示されます*/
+.light-theme,
+html[data-theme=light] {
+    --shadow-rgb: 0, 0, 0;
+    --link-rgb: 10, 114, 167;
+}
+
+.dark-theme,
+html[data-theme=dark] {
+    --shadow-rgb: 255, 255, 255;
+    --link-rgb: 62, 164, 218;
+}
+
+div#root>div>main>div#app-container {
+    & div.ls-block {
+        &[data-refs-self*='"@'] {
+            &>.flex.flex-row.pr-2 .bullet-container .bullet:before {
+                font-family: 'tabler-icons';
+                color: var(--awSt-content-text-user, var(--ls-primary-text-color));
+                background-color: var(--awSt-content-bg-user, var(--ls-primary-background-color));
+                border-radius: 100%;
+                position: relative;
+                top: -8.5px;
+                left: -6px;
+                letter-spacing: 1px;
+                padding-top: 1px;
+                padding-bottom: 2px;
+                padding-left: 2px;
+                padding-right: 1px;
+            }
+
+            &:not(:focus-within) .bullet {
+                transform: none;
+            }
+
+            &>div>.flex.flex-col.block-content-wrapper {
+                padding-left: 2px;
+            }
+
+            &>.flex.flex-row.pr-2>.block-control-wrap a {
+                &:hover>.bullet-container {
+                    background-color: transparent;
+
+                    & .bullet {
+                        background-color: transparent;
+                        transform: none;
+                    }
+                }
+
+                &>.bullet-container.bullet-closed>.bullet,
+                &:focus>.bullet-container .bullet {
+                    background-color: transparent;
+                }
+
+                &>.bullet-container.bullet-closed {
+                    background-color: transparent;
+
+                    &>.bullet:before {
+                        background-color: var(--ls-primary-background-color);
+                        border-radius: 20%;
+                        opacity: 100%;
+                        box-shadow: 0px 0.35px 0.7px 1px rgba(var(--shadow-rgb), 0.4);
+                    }
+                }
+            }
+        }
+
+        /*アイコンは以下で指定します。 @foo のような名前を選択してください
+        「\eaad」のようなコンテンツの値をコードに置き換えます
+        目的のアイコンの コードを見つけるには、TablerPicker プラグインを使用します*/
+        &[data-refs-self*='"@page']>.flex.flex-row.pr-2 .bullet-container .bullet:before {
+            content: "\eaa4" !important;
+        }
+
+        &[data-refs-self*='"@folder']>.flex.flex-row.pr-2 .bullet-container .bullet:before {
+            content: "\eaad" !important;
+        }
+
+        &[data-refs-self*='"@tag']>.flex.flex-row.pr-2 .bullet-container .bullet:before {
+            content: "\eb34" !important;
+        }
+
+        &[data-refs-self*='"@query']>.flex.flex-row.pr-2 .bullet-container .bullet:before {
+            content: "\eb1c" !important;
+        }
+
+        &[data-refs-self*='"@url']>.flex.flex-row.pr-2 .bullet-container .bullet:before {
+            content: "\eade" !important;
+        }
+
+        &[data-refs-self*='"@index']>.flex.flex-row.pr-2 .bullet-container .bullet:before {
+            content: "\eb6b" !important;
+        }
+
+        &[data-refs-self*='"@idea']>.flex.flex-row.pr-2 .bullet-container .bullet:before {
+            content: "\ea51" !important;
+        }
+
+        &[data-refs-self*='"@person']>.flex.flex-row.pr-2 .bullet-container .bullet:before {
+            content: "\ef68" !important;
+        }
+
+        &[data-refs-self*='"@book']>.flex.flex-row.pr-2 .bullet-container .bullet:before {
+            content: "\ea39" !important;
+        }
+
+        &[data-refs-self*='"@page']>.flex.flex-row.pr-2 .bullet-container .bullet:before {
+            color: red;
+        }
+
+        &[data-refs-self*='"@']>.flex.flex-row.pr-2>.block-control-wrap a>.bullet-container.bullet-closed>.bullet:before {
+            box-shadow: 0px 0.35px 0.7px 1px rgba(var(red), 0.6);
+        }
+    }
+
+
+    /*Optional: hide tags with @*/
+    & a.tag[data-ref*="@"] {
+        display: none;
+    }
+}
