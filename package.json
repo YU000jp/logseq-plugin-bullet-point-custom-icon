@@ -1,6 +1,6 @@
 {
     "name": "logseq-plugin-bullet-point-custom-icon",
-    "description": "A template for Logseq plugin written in TypeScript",
+    "description": "Use custom icons for bullets with specific tags.",
     "repository": "https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon.git",
     "author": "YU000jp",
     "license": "MIT",
