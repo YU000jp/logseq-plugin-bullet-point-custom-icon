@@ -1,6 +1,8 @@
 # Logseq Plugin: Bullet Point Custom Icon
 
-- Development stage (not published yet) 👷🚧
+- Use custom icons for bullets with specific tags.
+
+- Not published yet 👷🚧
 
 > [Release](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/releases) information is on the right. Load files at developer mode.
 
