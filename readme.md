@@ -47,7 +47,7 @@
 
 ### Icon
 
-- [icooon-mono.com](https://icooon-mono.com/)
+- [icooon-mono.com](https://icooon-mono.com/14744-%e3%82%b7%e3%83%a3%e3%83%bc%e3%83%97%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b32/)
 
 ---
 
