@@ -1,3 +1,18 @@
 {
-
+    "Function On/Off": "機能オン/オフ",
+    "Hide the tag of including `@` ? (except when editing)": "@を含むタグを隠す（編集時を除く）",
+    "Match parent tag? (if the specified tag contains Hierarchy)": "親タグにマッチさせる（階層を含むタグの場合）",
+    "Large icon?": "アイコンを大きくする",
+    "Use Emoji icon": "絵文字アイコンを使用する場合",
+    "Press the shortcut key and enter from the selection screen, or copy emoji on the site to clipboard. ": "ショートカットキーを押して選択画面から入力するか、サイト上の絵文字をクリップボードにコピーします。",
+    "Use Tabler icon": "Tablerアイコンを使用する場合",
+    "Install `Tabler-icon` plugin. Then copy icons to clipboard from toolbar.": "`Tabler-icon`プラグインをインストールしてください。その後、ツールバーから開き、アイコンをクリップボードにコピーします。",
+    "Bullets in blocks with that tag are effected.": "そのタグを含むブロックの箇条書き(バレット)に反映する",
+    "Tabler-icon or Emoji icon (`Win + .` / Mac: `cmd + ctrl + space`)": "Tablerアイコンまたは絵文字を使用する ショートカットキー(`Win + .` / Mac: `cmd + ctrl + space`)",
+    "one character(mark) only": "一文字マークのみ",
+    "Specify one or more tags": "タグを一つ以上指定してください (使用しない場合は空欄)",
+    "separated by line breaks": "(改行で区切る)",
+    "Colorize?": "色付けする",
+    "Specify the color of the icon": "アイコンの色を指定する",
+    "Tabler-icon only": "Tablerアイコンのみ"
 }
