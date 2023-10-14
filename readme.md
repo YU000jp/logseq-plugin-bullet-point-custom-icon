@@ -17,7 +17,7 @@
 
 - Useful for categorizing tags, logs, people, dates, items, etc. (For pages that use many times.)
 
-![image](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/4ce8860f-4ea5-4e00-a7fd-f2bd7b4ea742)
+![image](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/99beeaaa-7c17-4d76-98fc-05e65e2dbd8b)
 
 ### Showcase
 
@@ -36,8 +36,7 @@
 ### Usage
 
 - Operate from the toolbar button. When the button click, a popup show.
-  > First, the button is hidden by Logseq. Click this button (![image](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/37ed5fcb-8c6b-4e70-8025-59d73d9f275b)
-) on the toolbar. And select this (![image](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/80ab0c46-5b78-4e97-956e-17d1b0131bd5)). After that, the #️⃣ button will appear on the toolbar.
+  > First, the button is hidden by Logseq. Click this button (![icon](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/136f9d0f-9dcf-4942-9821-c9f692fcfc2f)) on the toolbar. And select this (![icon](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/a1b66c1f-6c2a-43c0-bcf3-7c0c8e188c6d)). After that, the #️⃣ button will appear on the toolbar.
 - Insert tags directly into the block from the popup. If want to remove the icon, remove the tag inside the block.
 - Up to 12 types of icons can be set. Multiple tags can be set for one icon. Change configs in Plugin settings (⚙️).
 > If use Tabler-icon, need to install and enable [`Tabler picker` plugin](https://github.com/yoyurec/logseq-tabler-picker).
