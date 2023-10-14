@@ -20,5 +20,8 @@
     "Icon": "アイコン",
     "Click here to insert a tag at the end of the current block.": "ここをクリックすると、現在のブロックの末尾にタグを挿入します",
     "Call Tabler picker plugin": "Tabler pickerプラグインの呼び出し",
-    "If enable the plugin, call it from here.": "そのプラグインが有効なら、ここから呼び出せます。"
+    "If enable the plugin, call it from here.": "そのプラグインが有効なら、ここから呼び出せます。",
+    "Insert at editing block: #": "カーソルを置いたブロックに挿入: #",
+    "No block selected.": "ブロックが選択されていません。",
+    "plugin settings": "プラグイン設定"
 }

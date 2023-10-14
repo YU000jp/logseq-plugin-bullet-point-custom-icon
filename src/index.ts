@@ -49,7 +49,7 @@ const main = () => {
   //ツールバーに設定画面を開くボタンを追加
   logseq.App.registerUIItem('toolbar', {
     key: 'customBulletIconToolbar',
-    template: `<div id="customBulletIconSettingsButton" data-rect><a class="button icon" data-on-click="customBulletIconToolbar" style="font-size:15px;color:#1f9ee1;opacity:unset" title="Bullet Point Custom Icon: plugin settings">#️⃣</a></div>`,
+    template: `<div id="customBulletIconSettingsButton" data-rect><a class="button icon" data-on-click="customBulletIconToolbar" style="font-size:15px;color:#1f9ee1;opacity:unset" title="Bullet Point Custom Icon: ${t("plugin settings")}">#️⃣</a></div>`,
   });
   //ツールバーボタンのクリックイベント
   logseq.provideModel({
@@ -154,11 +154,11 @@ const copyEvent = async (tag: string) => {
     //tagに空白が含まれていたら、[[ ]]で囲む
     if (tag.includes(" ")) tag = "[[" + tag + "]]";
     await logseq.Editor.updateBlock(currentBlock.uuid, currentBlock.content + " #" + tag, currentBlock.properties);
-    logseq.UI.showMsg("Insert at editing block: #" + tag + ".", "info");
+    logseq.UI.showMsg(t("Insert at editing block: #") + tag + ".", "info");
     logseq.Editor.editBlock(currentBlock.uuid);
   } else {
     //ブロックが選択されていない場合
-    logseq.UI.showMsg("No block selected.", "warning");
+    logseq.UI.showMsg(t("No block selected."), "warning");
   }
 };
 
@@ -169,7 +169,7 @@ export const openPopupSettingsChanged = () => {
 const openPopupFromToolbar = () => {
   let printCurrentSettings = `
       <div>
-      <h1>${t("Current settings")} <button class="button" id="bullet-point-custom-icon--showSettingsUI">⚙️</button></h1>
+      <h1>${t("Current settings")} <button class="button" id="bullet-point-custom-icon--showSettingsUI" title="Bullet Point Custom Icon: ${t("plugin settings")}">⚙️</button></h1>
       <p>${t("Select a block first, then click the tag name to insert that tag.")}</p>
       <hr/>
       `;
