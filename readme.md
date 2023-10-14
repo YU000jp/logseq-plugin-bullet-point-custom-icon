@@ -18,6 +18,7 @@
 - Useful for categorizing tags, logs, people, dates, items, etc. (For pages that use many times.)
 
 ![image](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/99beeaaa-7c17-4d76-98fc-05e65e2dbd8b)
+> (by [alexl](https://codeberg.org/alexl/for-logseq))
 
 ### Showcase
 
