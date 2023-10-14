@@ -30,7 +30,7 @@
 - Operate from the toolbar button. When the button click, a popup show.
   - First, the button is hidden by Logseq. Click this button (![image](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/b652d053-001a-41b9-856d-7ce4039ef24c)) on the toolbar. And select this (![image](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/2ff307d9-5b2c-45ea-bda1-77f1481096c1)). After that, a #️⃣ button will appear on the toolbar.
 - Insert tags directly into the block from the popup. If want to remove the icon, remove the tag inside the block.
-- Up to 12 types of icons can be set. Multiple tags can be set for one icon. Change configs in Plugin settings.
+- Up to 12 types of icons can be set. Multiple tags can be set for one icon. Change configs in Plugin settings (⚙️).
 
 ---
 
