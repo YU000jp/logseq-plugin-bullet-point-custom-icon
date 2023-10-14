@@ -23,6 +23,7 @@ const main = () => {
   provideStyle();
 
   //常時適用CSS
+  //プラグイン設定の見た目を整える
   logseq.provideStyle(`
   article>div[data-id="bullet-point-custom-icon"] div.heading-item {
     margin-top: 2em;
@@ -45,7 +46,7 @@ const main = () => {
   //ツールバーに設定画面を開くボタンを追加
   logseq.App.registerUIItem('toolbar', {
     key: 'customBulletIconSettingsButton',
-    template: `<div><a class="button icon" data-on-click="customBulletIconSettingsButton" style="font-size: 14px">🌞</a></div>`,
+    template: `<div><a class="button icon" data-on-click="customBulletIconSettingsButton" style="font-size: 14px" title="Bullet Point Custom Icon: plugin settings">#️⃣</a></div>`,
   });
   //ツールバーボタンのクリックイベント
   logseq.provideModel({
@@ -158,7 +159,7 @@ const provideStyle = () => {
       }
   `: ""}
       & div.ls-block {
-          &:is([data-refs-self*='"@'],${[...new Set(tagsListFull)].map((tag) => `${logseq.settings!.booleanHierarchyParentTag === false ? `:not([data-refs-self*='${tag}/' i])` : ""}[data-refs-self*='"${tag}"' i]`).join(",")}) {
+          &:is(${[...new Set(tagsListFull)].map((tag) => `${logseq.settings!.booleanHierarchyParentTag === false ? `:not([data-refs-self*='${tag}/' i])` : ""}[data-refs-self*='"${tag}"' i]`).join(",")}) {
             ${logseq.settings!.booleanIconLarge === "large" ?
           "&>.flex.flex-row.pr-2 .bullet-container .bullet:before {font-size: 1.2em;}"
           : logseq.settings!.booleanIconLarge === "x-large" ? "&>.flex.flex-row.pr-2 .bullet-container .bullet:before {font-size: 1.5em;}"
@@ -189,7 +190,7 @@ const provideStyle = () => {
 const eachCreateCSS = (count: string) => {
   let outCSS = "";
   //各行が空でないこと
-  const outTagsList: string[] = logseq.settings![`tagsList${count}`].split("\n").filter((tag) => tag !== "");
+  const outTagsList: string[] = (logseq.settings![`tagsList${count}`].includes("\n") ? logseq.settings![`tagsList${count}`].split("\n") : [logseq.settings![`tagsList${count}`]]).filter((tag) => tag !== "");
   if (logseq.settings![`icon${count}`] !== "" || outTagsList.length > 0) {
     outCSS = `&:is(${outTagsList.map((tag) => `${logseq.settings!.booleanHierarchyParentTag === false ? `:not([data-refs-self*='${tag}/' i])` : ""}[data-refs-self*='"${tag}"' i]`).join(",")})>.flex.flex-row.pr-2 .bullet-container .bullet:before {
         content: "${logseq.settings![`icon${count}`]}" !important;
