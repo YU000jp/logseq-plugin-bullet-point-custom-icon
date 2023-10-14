@@ -49,7 +49,7 @@ const main = () => {
   //ツールバーに設定画面を開くボタンを追加
   logseq.App.registerUIItem('toolbar', {
     key: 'customBulletIconToolbar',
-    template: `<div id="customBulletIconSettingsButton" data-rect><a class="button icon" data-on-click="customBulletIconToolbar" style="font-size: 15px;color:#1f9ee1" title="Bullet Point Custom Icon: plugin settings">#️⃣</a></div>`,
+    template: `<div id="customBulletIconSettingsButton" data-rect><a class="button icon" data-on-click="customBulletIconToolbar" style="font-size:15px;color:#1f9ee1;opacity:unset" title="Bullet Point Custom Icon: plugin settings">#️⃣</a></div>`,
   });
   //ツールバーボタンのクリックイベント
   logseq.provideModel({
@@ -126,11 +126,11 @@ export const provideStyle = () => {
 };
 
 
-const eachCreateCSS = (count: string) => {
+const eachCreateCSS = (count: string, iconOff?: boolean) => {
   let outCSS = "";
   //各行が空でないこと
   const outTagsList: string[] = (logseq.settings![`tagsList${count}`].includes("\n") ? logseq.settings![`tagsList${count}`].split("\n") : [logseq.settings![`tagsList${count}`]]).filter((tag) => tag !== "");
-  if (logseq.settings![`icon${count}`] !== "" || outTagsList.length > 0) {
+  if ((iconOff === false && logseq.settings![`icon${count}`] !== "") || outTagsList.length > 0) {
     outCSS = `&:is(${outTagsList.map((tag) => `${logseq.settings!.booleanHierarchyParentTag === false ? `:not([data-refs-self*='${tag}/' i])` : ""}[data-refs-self*='"${tag}"' i]`).join(",")})>.flex.flex-row.pr-2 .bullet-container .bullet:before {
         content: "${tableIconNonUnicode(count)}" !important;
         ${logseq.settings![`colorBoolean${count}`] === true ? `color: ${logseq.settings![`color${count}`]};` : ""}
@@ -177,10 +177,10 @@ const openPopupFromToolbar = () => {
   for (let i = 1; i < 13; i++) {
     //二桁にしたい
     const count = ("0" + i).slice(-2);
-    const { outCSS, outTagsList } = eachCreateCSS(count);
+    const { outCSS, outTagsList } = eachCreateCSS(count, true);
     if (outTagsList.length > 0) {
       //タグを一つずつ表示し、<button>でクリックするとそのタグをコピーする。,で区切る
-      const tagsList = outTagsList.map((tag) => `<button class="button" id="customBulletIconToolbar--${count}${tag}" title="${t("Click here to insert a tag at the end of the current block.")}">#${tag}</button>`) || "(none)";
+      const tagsList = outTagsList.map((tag) => `<button class="button" id="customBulletIconToolbar--${count}${tag}" title="${t("Click here to insert a tag at the end of the current block.")}">#${tag}</button>`);
 
       const icon = tablerIconGetUnicode(count);
       printCurrentSettings += `

@@ -77,4 +77,4 @@ export const tablerIconGetUnicode = (count: string) => logseq.settings![`icon${c
         //5桁の文字列であれば、\を削除して、&#xを付けて、;を付ける
         logseq.settings![`icon${count}`].length === 5 ?
             `&#x${(logseq.settings![`icon${count}`] as string).replace("\\", "") as string};` : logseq.settings![`icon${count}`]
-    : "(none)";
+    : "---";
