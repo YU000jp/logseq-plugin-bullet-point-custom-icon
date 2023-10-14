@@ -25,19 +25,21 @@ const main = () => {
   //常時適用CSS
   //プラグイン設定の見た目を整える
   logseq.provideStyle(`
-  article>div[data-id="bullet-point-custom-icon"] div.heading-item {
-    margin-top: 2em;
-    border-top-width: 1px;
-    padding-top: 1em;
-  }
-  article>div[data-id="bullet-point-custom-icon"] label.form-control{
-    &>input[type="text"].form-input {
-      width:100px;
-      font-size: 1.3em;
+  article>div[data-id="bullet-point-custom-icon"] {
+    &div.heading-item {
+      margin-top: 2em;
+      border-top-width: 1px;
+      padding-top: 1em;
     }
-    &>textarea.form-input {
-      width:350px;
-      height: 9em;
+    &label.form-control {
+      &>input[type="text"].form-input {
+        width: 100px;
+        font-size: 1.3em;
+      }
+      &>textarea.form-input {
+        width: 350px;
+        height: 9em;
+      }
     }
   }
   `);

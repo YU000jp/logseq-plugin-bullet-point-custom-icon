@@ -15,9 +15,11 @@ export const settingsTemplate = (): SettingSchemaDesc[] => {
         {//@を含むタグがついている場合、編集中以外は非表示
             key: "booleanAtMarkTagHidden",
             type: "boolean",
-            title: t("Hide the tag of including `@` ? (except when editing)"),
+            //通常のタグと区別するため、@を含むタグを使う場合
+            title: t("Hide the tag of including `@` ? (except when editing) If use a tag that includes `@` to distinguish it from a normal tag"),
             default: true,
-            description: "default: true",
+            // @tagのように、タグの前に@がついている場合、編集中以外は非表示にする
+            description: "default: true / ex: @tag",
         },
         {//指定したタグにHierarchyが含まれている場合、その親に一致する場合にもマッチさせる
             key: "booleanHierarchyParentTag",
@@ -47,13 +49,14 @@ export const settingsTemplate = (): SettingSchemaDesc[] => {
             title: t("Use Tabler icon"),
             default: "",
             description: t("Install `Tabler-icon` plugin. Then copy icons to clipboard from toolbar."),
-        }
+        },
     ];
 
     //option
 
     //12種類のアイコンを設定する
-    const iconArray = ["🌟", "👍", "🔵", "📚", "📌", "📝", "📖", "❓", "🌳", "🐶", "🚗", "🔥"];
+    const iconArray = ["🔴", "\\eba9", "📚", "\\eaad", "📌", "📝", "📖", "❓", "🌳", "🐶", "🚗", "🔥"];//12
+    const tagArray = ["@red", "@people", "@book", "@folder", "@pin", "@memo", "@book", "@question", "@tree", "@dog", "@car", "@fire"];//12
 
     //12個複製する
     for (let i = 0; i < 12; i++) {
@@ -72,16 +75,16 @@ export const settingsTemplate = (): SettingSchemaDesc[] => {
                 type: "string",
                 title: t("Tabler-icon or Emoji icon (`Win + .` / Mac: `cmd + ctrl + space`)"),
                 //一文字のみ
-                description: t("one character(mark) only"),
+                description: t("ex. `\\eaad`(Tabler-icon code) or one character(mark) only"),
                 default: iconArray[i],
             },
             {
                 key: `tagsList${count}`,
                 type: "string",
                 inputAs: "textarea",
-                title: t("Specify one or more tags"),
-                description: t("separated by line breaks"),
-                default: "",
+                title: t("Specify one or more tags to be applied to the icon"),
+                description: t("Separated by line breaks. Without `#`. Not must include `@`."),
+                default: tagArray[i] + "\n",
             },
             {
                 key: `colorBoolean${count}`,
@@ -97,7 +100,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => {
                 inputAs: "color",
                 title: t("Specify the color of the icon"),
                 description: t("Tabler-icon only"),
-                default: "#6032A4",
+                default: "#32A482",
             },
         );
     }

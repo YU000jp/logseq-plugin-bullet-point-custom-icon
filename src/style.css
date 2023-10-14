@@ -40,9 +40,12 @@
         background-color: transparent;
 
         &>.bullet:before {
-            outline: 3px solid var(--ls-guideline-color);
-            text-decoration: line-through;
+            background-color: var(--ls-secondary-background-color);
+            outline: 2px solid var(--ls-guideline-color);
             padding: 0;
+            border-radius: .3em;
+            opacity: 80%;
+            box-shadow: 0px 0.35px 0.7px 1px rgba(var(--ls-guideline-color), 0.8);
         }
     }
 }
