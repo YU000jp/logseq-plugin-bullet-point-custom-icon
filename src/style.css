@@ -40,9 +40,9 @@
         background-color: transparent;
 
         &>.bullet:before {
-            outline: 1px solid var(--ls-border-color);
-            outline-offset: .1em;
-            border-radius: 20%;
+            outline: 3px solid var(--ls-guideline-color);
+            text-decoration: line-through;
+            padding: 0;
         }
     }
 }
