@@ -6,7 +6,7 @@
     "Use Emoji icon": "絵文字アイコンを使用する場合",
     "Press the shortcut key and enter from the selection screen, or copy emoji on the site to clipboard. ": "ショートカットキーを押して選択画面から入力するか、サイト上の絵文字をクリップボードにコピーします。",
     "Use Tabler icon": "Tablerアイコンを使用する場合",
-    "Install `Tabler-icon` plugin. Then copy icons to clipboard from toolbar.": "`Tabler-icon`プラグインをインストールしてください。その後、ツールバーから開き、アイコンをクリップボードにコピーします。",
+    "Install `Tabler picker` plugin. Then copy icons to clipboard.": "`Tabler picker`プラグインをインストールしてください。その後、アイコンをクリックしてクリップボードにコピーします。",
     "Bullets in blocks with that tag are effected.": "そのタグを含むブロックの箇条書き(バレット)に反映する",
     "Tabler-icon or Emoji icon (`Win + .` / Mac: `cmd + ctrl + space`)": "Tablerアイコンまたは絵文字を使用する ショートカットキー(`Win + .` / Mac: `cmd + ctrl + space`)",
     "ex. `\\eaad`(Tabler-icon code) or one character(mark) only": "例: `\\eaad`(Tablerアイコンのコード) または 一文字(記号)のみ",
@@ -18,5 +18,7 @@
     "Current settings": "現在の設定",
     "Select a block first, then click the tag name to insert that tag.": "ブロックを選択してから、タグ名をクリックしてそのタグを挿入します。",
     "Icon": "アイコン",
-    "Tags": "タグ"
+    "Click here to insert a tag at the end of the current block.": "ここをクリックすると、現在のブロックの末尾にタグを挿入します",
+    "Call Tabler picker plugin": "Tabler pickerプラグインの呼び出し",
+    "If enable the plugin, call it from here.": "そのプラグインが有効なら、ここから呼び出せます。"
 }
