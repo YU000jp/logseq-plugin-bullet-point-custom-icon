@@ -14,5 +14,9 @@
     "Separated by line breaks. Without `#`. Not must include `@`.": "改行で区切る / `#`なしで入力。@は必須ではありません。",
     "Colorize?": "色付けする",
     "Specify the color of the icon": "アイコンの色を指定する",
-    "Tabler-icon only": "Tablerアイコンのみ"
+    "Tabler-icon only": "Tablerアイコンのみ",
+    "Current settings": "現在の設定",
+    "Select a block first, then click the tag name to insert that tag.": "ブロックを選択してから、タグ名をクリックしてそのタグを挿入します。",
+    "Icon": "アイコン",
+    "Tags": "タグ"
 }
