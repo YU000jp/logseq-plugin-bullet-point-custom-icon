@@ -41,6 +41,7 @@
 - Insert tags directly into the block from the popup. If want to remove the icon, remove the tag inside the block.
 - Up to 12 types of icons can be set. Multiple tags can be set for one icon. Change configs in Plugin settings (⚙️).
 > If use Tabler-icon, need to install and enable [`Tabler picker` plugin](https://github.com/yoyurec/logseq-tabler-picker).
+- Tags that include @ can be hidden except when being edited. Existing tags without @ are also possible.
 
 ---
 
