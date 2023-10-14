@@ -6,8 +6,6 @@
 
 > [Release](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/releases) information is on the right. Load files at developer mode.
 
-> This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
-
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-bullet-point-custom-icon)](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-bullet-point-custom-icon?color=blue)](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-bullet-point-custom-icon/total.svg)](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/releases)
@@ -28,6 +26,10 @@
 - Type `Bullet` in the search field, select it from the search results and install
 
 ### Usage
+
+- Operate from the toolbar button. When the button click, a popup show.
+  - First, the button is hidden by Logseq. Click this button (![image](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/b652d053-001a-41b9-856d-7ce4039ef24c)) on the toolbar. And select this (![image](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/2ff307d9-5b2c-45ea-bda1-77f1481096c1)). After that, a #️⃣ button will appear on the toolbar.
+- Change configs in Plugin settings. Insert tags directly into the block from the popup.
 
 ---
 
