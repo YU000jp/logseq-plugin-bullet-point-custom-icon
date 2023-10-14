@@ -3,7 +3,7 @@ import { settingsTemplate, settingChanged } from './settings';
 import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
 import ja from "./translations/ja.json";
 import { BlockEntity } from '@logseq/libs/dist/LSPlugin.user';
-import CSS from './style.css?inline';
+import CSS from './bullet.css?inline';
 import { tableIconNonUnicode, tablerIconGetUnicode } from './lib';
 export const keyNameToolbarPopup = "toolbar-box";//ポップアップのキー名
 
@@ -41,6 +41,23 @@ const main = () => {
         width: 350px;
         height: 9em;
       }
+    }
+  }
+  body>div#bullet-point-custom-icon--toolbar-box {
+    & h1 {
+      font-size: 1.5em;
+    }
+    & button {
+      display: unset;
+    }
+    & hr {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+    & span.tabler-icon {
+      font-family: 'tabler-icons';
+      font-size: 1.5em;
+      margin-left: 0.7em;
     }
   }
   `);
@@ -225,25 +242,6 @@ const openPopupFromToolbar = () => {
         <div title="">
         ${printCurrentSettings}
         </div>
-        <style>
-        body>div#bullet-point-custom-icon--toolbar-box {
-          & h1 {
-            font-size: 1.5em;
-          }
-          & button {
-            display: unset;
-          }
-          & hr {
-            margin-top: 1em;
-            margin-bottom: 1em;
-          }
-          & span.tabler-icon {
-            font-family: 'tabler-icons';
-            font-size: 1.5em;
-            margin-left: 0.7em;
-          }
-        }
-        </style>
         `,
   });
   setTimeout(() => {
