@@ -3,8 +3,9 @@ import { settingsTemplate } from './settings';
 import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
 import ja from "./translations/ja.json";
 import { removeProvideStyle } from './lib';
-import { LSPluginBaseInfo } from '@logseq/libs/dist/LSPlugin.user';
+import { BlockEntity } from '@logseq/libs/dist/LSPlugin.user';
 import CSS from './style.css?inline';
+import { settingChanged } from './settings';
 
 /* main */
 const main = () => {
@@ -26,12 +27,12 @@ const main = () => {
   //プラグイン設定の見た目を整える
   logseq.provideStyle(`
   article>div[data-id="bullet-point-custom-icon"] {
-    &div.heading-item {
-      margin-top: 2em;
+    & div.heading-item {
+      margin-top: 3em;
       border-top-width: 1px;
       padding-top: 1em;
     }
-    &label.form-control {
+    & label.form-control {
       &>input[type="text"].form-input {
         width: 100px;
         font-size: 1.3em;
@@ -47,86 +48,107 @@ const main = () => {
 
   //ツールバーに設定画面を開くボタンを追加
   logseq.App.registerUIItem('toolbar', {
-    key: 'customBulletIconSettingsButton',
-    template: `<div><a class="button icon" data-on-click="customBulletIconSettingsButton" style="font-size: 14px" title="Bullet Point Custom Icon: plugin settings">#️⃣</a></div>`,
+    key: 'customBulletIconToolbar',
+    template: `<div id="customBulletIconSettingsButton" data-rect><a class="button icon" data-on-click="customBulletIconToolbar" style="font-size: 14px" title="Bullet Point Custom Icon: plugin settings">#️⃣</a></div>`,
   });
   //ツールバーボタンのクリックイベント
   logseq.provideModel({
-    customBulletIconSettingsButton: () => {
-      logseq.showSettingsUI();
-    }
+    customBulletIconToolbar: () => {
+      let printCurrentSettings = `
+      <div>
+      <h1>${t("Current settings")} <button class="button" id="showSettingsUI">⚙️</button></h1>
+      <p>${t("Select a block first, then click the tag name to insert that tag.")}</p>
+      <hr/>
+      `;
+      //現在の設定を表示
+      let tagsListFull: string[] = [];
+      for (let i = 1; i < 13; i++) {
+        //二桁にしたい
+        const count = ("0" + i).slice(-2);
+        const { outCSS, outTagsList } = eachCreateCSS(count);
+        if (outTagsList.length > 0) {
+          //タグを一つずつ表示し、<button>でクリックするとそのタグをコピーする。,で区切る
+          const tagsList = outTagsList.map((tag) => `<button class="button" id="customBulletIconToolbar--${count}${tag}">#${tag}</button>`) || "(none)";
+          printCurrentSettings += `
+          <div>${t("Icon")} ${count}: ${logseq.settings![`icon${count}`]}<br/>
+          ${t("Tags")}: <span style="display:flex">${tagsList}</span></div>
+          <hr/>
+          `;
+          //outTagsListに${count}を付けて、タグを一つずつ表示し、<button>でクリックするとそのタグをコピーする。,で区切る
+          outTagsList.forEach((tag) => {
+            setTimeout(() => {
+              const copyTag = parent.document.getElementById(`customBulletIconToolbar--${count}${tag}`) as HTMLButtonElement | null;
+              if (copyTag) copyTag.addEventListener("click", () => copyEvent(tag));
+            }, 120);
+          });
+        }
+      }
+      printCurrentSettings += "</div>";
+
+      //ポップアップを表示
+      logseq.provideUI({
+        attrs: {
+          title: "Bullet Point Custom Icon plugin",
+        },
+        key: 'toolbar-box',
+        reset: true,
+        close: "outside",
+        style: {
+          width: "400px",
+          minHeight: "500px",
+          maxHeight: "1630px",
+          overflowY: "auto",
+          left: "unset",
+          bottom: "unset",
+          right: "1em",
+          top: "4em",
+          paddingLeft: "2em",
+          paddingTop: "2em",
+          backgroundColor: 'var(--ls-primary-background-color)',
+          color: 'var(--ls-primary-text-color)',
+          boxShadow: '1px 2px 5px var(--ls-secondary-background-color)',
+        },
+        template: `
+        <div title="">
+        ${printCurrentSettings}
+        </div>
+        <style>
+        body>div#bullet-point-custom-icon--toolbar-box {
+          & h1 {
+            font-size: 1.5em;
+          }
+          & button {
+            display: unset;
+          }
+          & hr {
+            margin-top: 1em;
+            margin-bottom: 1em;
+          }
+        }
+        </style>
+        `,
+      });
+      setTimeout(() => {
+        //設定画面を開くボタンをクリックしたら、設定画面を開く
+        const showSettingsUI = parent.document.getElementById("showSettingsUI") as HTMLButtonElement | null;
+        if (showSettingsUI) showSettingsUI.addEventListener("click", () => logseq.showSettingsUI(), { once: true });
+      }, 50);
+    },
+    showSettingsUI: () => logseq.showSettingsUI(),
   });
 
   //Setting changed
-  logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
-    if (newSet.booleanFunction !== oldSet.booleanFunction) {
-      if (newSet.booleanFunction === true) provideStyle();
-      else
-        if (newSet.booleanFunction === false) removeProvideStyle("bullet-point-custom-icon");
-    } else
-      if (oldSet.booleanAtMarkTagHidden !== newSet.booleanAtMarkTagHidden
-        || oldSet.booleanHierarchyParentTag !== newSet.booleanHierarchyParentTag
-        || oldSet.booleanIconLarge !== newSet.booleanIconLarge
-        || oldSet.icon01 !== newSet.icon01
-        || oldSet.icon02 !== newSet.icon02
-        || oldSet.icon03 !== newSet.icon03
-        || oldSet.icon04 !== newSet.icon04
-        || oldSet.icon05 !== newSet.icon05
-        || oldSet.icon06 !== newSet.icon06
-        || oldSet.icon07 !== newSet.icon07
-        || oldSet.icon08 !== newSet.icon08
-        || oldSet.icon09 !== newSet.icon09
-        || oldSet.icon10 !== newSet.icon10
-        || oldSet.icon11 !== newSet.icon11
-        || oldSet.icon12 !== newSet.icon12
-        || oldSet.tagsList01 !== newSet.tagsList01
-        || oldSet.tagsList02 !== newSet.tagsList02
-        || oldSet.tagsList03 !== newSet.tagsList03
-        || oldSet.tagsList04 !== newSet.tagsList04
-        || oldSet.tagsList05 !== newSet.tagsList05
-        || oldSet.tagsList06 !== newSet.tagsList06
-        || oldSet.tagsList07 !== newSet.tagsList07
-        || oldSet.tagsList08 !== newSet.tagsList08
-        || oldSet.tagsList09 !== newSet.tagsList09
-        || oldSet.tagsList10 !== newSet.tagsList10
-        || oldSet.tagsList11 !== newSet.tagsList11
-        || oldSet.tagsList12 !== newSet.tagsList12
-        || oldSet.colorBoolean01 !== newSet.colorBoolean01
-        || oldSet.colorBoolean02 !== newSet.colorBoolean02
-        || oldSet.colorBoolean03 !== newSet.colorBoolean03
-        || oldSet.colorBoolean04 !== newSet.colorBoolean04
-        || oldSet.colorBoolean05 !== newSet.colorBoolean05
-        || oldSet.colorBoolean06 !== newSet.colorBoolean06
-        || oldSet.colorBoolean07 !== newSet.colorBoolean07
-        || oldSet.colorBoolean08 !== newSet.colorBoolean08
-        || oldSet.colorBoolean09 !== newSet.colorBoolean09
-        || oldSet.colorBoolean10 !== newSet.colorBoolean10
-        || oldSet.colorBoolean11 !== newSet.colorBoolean11
-        || oldSet.colorBoolean12 !== newSet.colorBoolean12
-        || oldSet.color01 !== newSet.color01
-        || oldSet.color02 !== newSet.color02
-        || oldSet.color03 !== newSet.color03
-        || oldSet.color04 !== newSet.color04
-        || oldSet.color05 !== newSet.color05
-        || oldSet.color06 !== newSet.color06
-        || oldSet.color07 !== newSet.color07
-        || oldSet.color08 !== newSet.color08
-        || oldSet.color09 !== newSet.color09
-        || oldSet.color10 !== newSet.color10
-        || oldSet.color11 !== newSet.color11
-        || oldSet.color12 !== newSet.color12
-      ) reset();
-  });
+  settingChanged();
 
 };/* end_main */
 
-const reset = () => {
+export const reset = () => {
   removeProvideStyle("bullet-point-custom-icon");
   provideStyle();
 };
 
 
-const provideStyle = () => {
+export const provideStyle = () => {
   if (logseq.settings!.booleanFunction === false) return;
 
   let printCSS = "";
@@ -174,7 +196,7 @@ const provideStyle = () => {
         + "\ndiv#root>div>main>div#app-container div.ls-block {\n" + printCSS + "\n}\n"
     });
   } else {
-    //固定CSS
+    //固定CSSのみ
     if (logseq.settings!.booleanAtMarkTagHidden === true) logseq.provideStyle({
       key: 'bullet-point-custom-icon', style: `
     div#root>div>main>div#app-container {
@@ -201,6 +223,26 @@ const eachCreateCSS = (count: string) => {
       `;
   }
   return { outCSS, outTagsList };
+};
+
+
+const copyEvent = async (tag: string) => {
+  //現在のブロックを取得
+  const currentBlock = await logseq.Editor.getCurrentBlock() as BlockEntity | null;
+  if (currentBlock) {
+    const ele = parent.document.querySelector(`div#root>div>main>div#app-container div[blockid="${currentBlock.uuid}"]`) as HTMLDivElement | null;
+    if (ele) {
+      ele.style.outline = "3px solid var(--ls-border-color)";
+      setTimeout(() => ele.style.outline = "unset", 4000);
+    }
+    //現在のブロックの最後にタグを追加
+    await logseq.Editor.updateBlock(currentBlock.uuid, currentBlock.content + " #" + tag, currentBlock.properties);
+    logseq.UI.showMsg("Insert at editing block: #" + tag);
+    logseq.Editor.editBlock(currentBlock.uuid);
+  } else {
+    //ブロックが選択されていない場合
+    logseq.UI.showMsg("No block selected.", "warning");
+  }
 };
 
 
