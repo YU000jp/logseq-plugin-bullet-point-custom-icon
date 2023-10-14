@@ -19,6 +19,10 @@
 
 ![image](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/4ce8860f-4ea5-4e00-a7fd-f2bd7b4ea742)
 
+### Showcase
+
+- [here (discuss.logseq.com)](https://discuss.logseq.com/t/custom-icons-as-bullet-points/20306)
+
 ---
 
 ## Getting Started
