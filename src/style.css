@@ -1,3 +1,4 @@
+/* Credit: alexl https://codeberg.org/alexl/for-logseq */
 &>.flex.flex-row.pr-2 .bullet-container .bullet:before {
     font-family: 'tabler-icons';
     color: var(--awSt-content-text-user, var(--ls-primary-text-color));
