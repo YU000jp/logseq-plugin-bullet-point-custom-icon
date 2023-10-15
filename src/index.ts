@@ -42,6 +42,12 @@ const main = () => {
         height: 9em;
       }
     }
+    & div.desc-item {
+      & p {
+          margin-top: 0.5em;
+          margin-bottom: 0.5em;
+      }
+    }
   }
   body>div#bullet-point-custom-icon--toolbar-box {
     & h1 {
