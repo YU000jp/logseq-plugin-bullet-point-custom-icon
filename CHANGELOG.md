@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.0.1...v1.0.2) (2023-10-15)
+
+
+### Bug Fixes
+
+* **bug:** plugin settings, show set tabler-icon ([d9f7e3f](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/d9f7e3fb6afdb536902f7a2173850aa926356fa3))
+
 ## [1.0.1](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.0.0...v1.0.1) (2023-10-15)
 
 
