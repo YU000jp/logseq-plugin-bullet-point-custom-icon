@@ -26,53 +26,58 @@ const main = () => {
   //常時適用CSS
   //プラグイン設定の見た目を整える
   logseq.provideStyle(`
-  body>div#root>div>main {
-    & article>div[data-id="bullet-point-custom-icon"] {
-      & div.heading-item {
-        margin-top: 3em;
-        border-top-width: 1px;
-        padding-top: 1em;
-      }
-
-      & label.form-control {
-        &>input[type="text"].form-input {
-          width: 100px;
-          font-size: 1.3em;
+  body>div {
+    &#root>div>main {
+      & article>div[data-id="bullet-point-custom-icon"] {
+        & div.heading-item {
+          margin-top: 3em;
+          border-top-width: 1px;
+          padding-top: 1em;
         }
-
-        &>textarea.form-input {
-          width: 350px;
-          height: 9em;
+  
+        & label.form-control {
+          &>input[type="text"].form-input {
+            width: 100px;
+            font-size: 1.3em;
+          }
+  
+          &>textarea.form-input {
+            width: 350px;
+            height: 9em;
+          }
+        }
+  
+        & div.desc-item {
+          & p {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+          }
+        }
+        & div.desc-item[data-key^="icon"] label input.form-input {
+            font-family: 'tabler-icons';
         }
       }
-
-      & div.desc-item {
-        & p {
-          margin-top: 0.5em;
-          margin-bottom: 0.5em;
-        }
+    }
+  
+    &#bullet-point-custom-icon--toolbar-box {
+      & h1 {
+        font-size: 1.5em;
       }
-    }
-  }
-
-  body>div#bullet-point-custom-icon--toolbar-box {
-    & h1 {
-      font-size: 1.5em;
-    }
-
-    & button {
-      display: unset;
-    }
-
-    & hr {
-      margin-top: 1em;
-      margin-bottom: 1em;
-    }
-
-    & span.tabler-icon {
-      font-family: 'tabler-icons';
-      font-size: 1.5em;
-      margin-left: 0.7em;
+  
+      & button {
+        display: unset;
+      }
+  
+      & hr {
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+  
+      & span.tabler-icon {
+        font-family: 'tabler-icons';
+        font-size: 1.5em;
+        margin-left: 0.7em;
+      }
     }
   }
   `);
