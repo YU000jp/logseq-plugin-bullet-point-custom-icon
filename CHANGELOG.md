@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.0.0...v1.0.1) (2023-10-15)
+
+
+### Bug Fixes
+
+* **bug:** Parent block with block properties ([9163ee2](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/9163ee2ca072479b9cdf07af756af14c0215cd80))
+* **doc:** plugin description ([febb2ec](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/febb2ec3fd8d20bd4f9198d97a3d1752ef52ff72))
+
 # 1.0.0 (2023-10-14)
 
 
