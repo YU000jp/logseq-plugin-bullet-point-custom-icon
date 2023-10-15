@@ -122,7 +122,7 @@ export const provideStyle = () => {
     //動的CSS
     logseq.provideStyle({
       key: 'bullet-point-custom-icon', style: `
-    div#root>div>main>div#app-container {
+    body>div#root>div>main>div#app-container {
       ${logseq.settings!.booleanAtMarkTagHidden === true ? `
       /*Optional: hide tags with @*/
       & a.tag[data-ref*="@"] {
@@ -137,16 +137,16 @@ export const provideStyle = () => {
             : ""}  
             ${CSS}
           }
+          ${printCSS}
       }
     }
     `
-        + "\ndiv#root>div>main>div#app-container div.ls-block {\n" + printCSS + "\n}\n"
     });
   } else {
     //固定CSSのみ
     if (logseq.settings!.booleanAtMarkTagHidden === true) logseq.provideStyle({
       key: 'bullet-point-custom-icon', style: `
-    div#root>div>main>div#app-container {
+    body>div#root>div>main>div#app-container {
       /*Optional: hide tags with @*/
       & a.tag[data-ref*="@"] {
           display: none;
@@ -173,17 +173,10 @@ const eachCreateCSS = (count: string, iconOff?: boolean) => {
 };
 
 
-export const openPopupSettingsChanged = () => {
-  openPopupFromToolbar();
-};
+export const openPopupSettingsChanged = () => openPopupFromToolbar();
 
 const openPopupFromToolbar = () => {
-  let printCurrentSettings = `
-      <div>
-      <h1>${t("Current settings")} <button class="button" id="bullet-point-custom-icon--showSettingsUI" title="Bullet Point Custom Icon: ${t("plugin settings")}">⚙️</button></h1>
-      <p>${t("Select a block first, then click the tag name to insert that tag.")}</p>
-      <hr/>
-      `;
+  let printCurrentSettings = "";
   //現在の設定を表示
   for (let i = 1; i < 13; i++) {
     //二桁にしたい
@@ -208,7 +201,6 @@ const openPopupFromToolbar = () => {
       });
     }
   }
-  printCurrentSettings += "</div>";
 
   //ポップアップを表示
   logseq.provideUI({
@@ -234,7 +226,12 @@ const openPopupFromToolbar = () => {
     },
     template: `
         <div title="">
+        <div>
+        <h1>${t("Current settings")} <button class="button" id="bullet-point-custom-icon--showSettingsUI" title="Bullet Point Custom Icon: ${t("plugin settings")}">⚙️</button></h1>
+        <p>${t("Select a block first, then click the tag name to insert that tag.")}</p>
+        <hr/>
         ${printCurrentSettings}
+        </div>
         </div>
         `,
   });
