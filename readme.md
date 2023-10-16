@@ -37,6 +37,11 @@
 > If use Tabler-icon, need to install and enable [`Tabler picker` plugin](https://github.com/yoyurec/logseq-tabler-picker).
 - Tags that include @ can be hidden except when being edited. Existing tags without @ are also possible.
 
+#### Recommend
+
+- [🎨Panel Coloring plugin](https://github.com/YU000jp/logseq-plugin-panel-coloring)
+  > Accentuate specified pages or tagged blocks by coloring.
+
 ---
 
 ## Showcase / Questions / Ideas / Help
