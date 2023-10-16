@@ -1,4 +1,4 @@
-# Logseq Plugin: Bullet Point Custom Icon
+# Logseq Plugin: Bullet Point Custom Icon #️⃣
 
 - Apply custom icons for bullets with specific tags. Choice Tabler-icon or emoji.
 
