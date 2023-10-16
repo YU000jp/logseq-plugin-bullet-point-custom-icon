@@ -2,14 +2,10 @@
 
 - Apply custom icons for bullets with specific tags. Choice Tabler-icon or emoji.
 
-- Not published yet 👷🚧
-
-> [Release](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/releases) information is on the right. Load files at developer mode.
-
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-bullet-point-custom-icon)](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-bullet-point-custom-icon?color=blue)](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-bullet-point-custom-icon/total.svg)](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/releases)
-<!-- Published 2023 -->
+ Published 2023/10/15
 
 ---
 
@@ -28,11 +24,9 @@
 
 ## Getting Started
 
-### Install from Logseq Marketplace (Coming👷🚧)
+### Install from Logseq Marketplace
 
-- Press [`---`] on the top right toolbar to open [`Plugins`]
-- Select marketplace
-- Type `Bullet` in the search field, select it from the search results and install
+- Press [`---`] on the top right toolbar to open [`Plugins`]. Select `marketplace`. Type `Bullet` in the search field, select it from the search results and install.
 
 ### Usage
 
