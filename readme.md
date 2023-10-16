@@ -1,6 +1,6 @@
 # Logseq Plugin: Bullet Point Custom Icon #️⃣
 
-- Apply custom icons for bullets with specific tags. Choice Tabler-icon or emoji. This is useful for things like the right sidebar content page or others.
+- Apply custom icons for bullets with specific tags. Choice Tabler-icon or emoji.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-bullet-point-custom-icon)](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-bullet-point-custom-icon?color=blue)](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/LICENSE)
@@ -11,7 +11,7 @@
 
 ## Feature
 
-- Useful for categorizing tags, logs, people, dates, items, etc. (For pages that use many times.)
+- Useful for categorizing tags, logs, people, dates, items, etc. For pages that use many times. This is useful for things like the right sidebar content page or others.
 
 ![image](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/99beeaaa-7c17-4d76-98fc-05e65e2dbd8b)
 > (by [alexl](https://codeberg.org/alexl/for-logseq))
