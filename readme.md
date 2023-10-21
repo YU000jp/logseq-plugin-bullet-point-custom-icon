@@ -15,9 +15,7 @@ Useful for categorizing tags, logs, people, dates, items, etc. For pages or tags
 
 ![image](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/99beeaaa-7c17-4d76-98fc-05e65e2dbd8b)
 
-Showcase
-
-[Custom icons as bullet points (discuss.logseq.com)](https://discuss.logseq.com/t/custom-icons-as-bullet-points/20306)
+Showcase > [Custom icons as bullet points (discuss.logseq.com)](https://discuss.logseq.com/t/custom-icons-as-bullet-points/20306)
 
 ---
 
