@@ -1,5 +1,7 @@
 # Logseq Plugin: Bullet Point Custom Icon #️⃣
 
+[English](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon) | [日本語](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/blob/main/readme.ja.md)
+
 - Apply custom icons for bullets with specific tags. Choice Tabler-icon or emoji.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-bullet-point-custom-icon)](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/releases)
