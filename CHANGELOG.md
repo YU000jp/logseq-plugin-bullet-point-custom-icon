@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.0.2...v1.0.3) (2023-11-06)
+
+
+### Bug Fixes
+
+* **bug:** CSS not applied to menu ([fffae48](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/fffae48d087eb96e366e251be07d8eee4b03859e))
+
 ## [1.0.2](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.0.1...v1.0.2) (2023-10-15)
 
 
