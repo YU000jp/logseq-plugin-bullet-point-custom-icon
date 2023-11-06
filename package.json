@@ -5,7 +5,7 @@
     "author": "YU000jp",
     "license": "MIT",
     "logseq": {
-        "id": "bullet-point-custom-icon",
+        "id": "logseq-plugin-bullet-point-custom-icon",
         "title": "Bullet Point Custom Icon",
         "icon": "./icon.svg",
         "main": "./dist/index.html"

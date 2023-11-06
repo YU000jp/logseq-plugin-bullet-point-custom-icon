@@ -28,7 +28,7 @@ const main = () => {
   logseq.provideStyle(`
   body>div {
     &#root>div>main {
-      & article>div[data-id="bullet-point-custom-icon"] {
+      & article>div[data-id="logseq-plugin-bullet-point-custom-icon"] {
         & div.heading-item {
           margin-top: 3em;
           border-top-width: 1px;
@@ -59,7 +59,7 @@ const main = () => {
       }
     }
   
-    &#bullet-point-custom-icon--toolbar-box {
+    &#logseq-plugin-bullet-point-custom-icon--toolbar-box {
       & h1 {
         font-size: 1.5em;
       }
