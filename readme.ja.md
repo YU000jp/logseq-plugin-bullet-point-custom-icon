@@ -46,7 +46,7 @@ Logseq Marketplaceからインストール
 
 1. "Flow Nord" テーマを使用する場合、テキストと重なってしまう https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/discussions/3
 
-1. このプラグインは、Logseq の DOM 構造に依存しています。Logseq のバージョン更新により DOM 構造が変更された場合、スタイルが適用されない場合があります。CSSを調整して対応します。何か気づいたら、問題を提起してください。
+1. このプラグインは、Logseq の DOM 構造に依存しています。Logseq のバージョン更新により DOM 構造が変更された場合、スタイルが適用されない場合があります。CSSを調整して対応します。何か気づいたら、issueを提起してください。
 
 ## 先行技術とクレジット
 
