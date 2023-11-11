@@ -46,16 +46,14 @@ Recommend
 
 1. Uses "Flow Nord" theme, overlaps with text https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/discussions/3
 
-
+1. This plugin relies on Logseq's DOM structure.If the DOM structure changes due to a Logseq version update, styles may not be applied. We will adjust the CSS to deal with it. If you notice something, please raise an issue.
 
 ## Prior art & Credit
 
-CSS code > [Mr. alexl](https://codeberg.org/alexl/for-logseq)
+CSS code > [@alexl](https://codeberg.org/alexl/for-logseq)
 
 Icon > [icooon-mono.com](https://icooon-mono.com/14744-%e3%82%b7%e3%83%a3%e3%83%bc%e3%83%97%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b32/)
 
-Author >  [YU000jp (GitHub)](https://github.com/YU000jp)
-
----
+Author >  [@YU000jp](https://github.com/YU000jp)
 
 <a href="https://www.buymeacoffee.com/yu000japan" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="🍌Buy Me A Coffee" style="height: 42px;width: 152px" ></a>
