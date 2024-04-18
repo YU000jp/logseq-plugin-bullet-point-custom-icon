@@ -16,6 +16,7 @@
 
 &:not(:focus-within) .bullet {
     transform: none;
+    border: none;
 }
 
 &>div>.flex.flex-col.block-content-wrapper {
