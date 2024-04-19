@@ -37,13 +37,13 @@ const main = () => {
   
         & label.form-control {
           &>input[type="text"].form-input {
-            width: 100px;
+            width: 65px;
             font-size: 1.3em;
           }
   
           &>textarea.form-input {
-            width: 350px;
-            height: 9em;
+            width: 420px;
+            height: 4em;
           }
         }
   
@@ -82,6 +82,36 @@ const main = () => {
   }
   `);
 
+  let settingsCSS = ''
+  for (let i = 1; i <= 12; i++) {
+    const count = ('0' + i).slice(-2)
+
+    settingsCSS += `
+      div[data-key="icon${count}"],
+      div[data-key="colorBoolean${count}"],
+      div[data-key="color${count}"],
+      div[data-key="tagsList${count}"] {
+        display: inline-block;
+      }
+
+      div[data-key="icon${count}"],
+      div[data-key="colorBoolean${count}"],
+      div[data-key="color${count}"],
+      div[data-key="tagsList${count}"] {
+        vertical-align: middle;
+        padding: 10px 0px 10px 0px !important;
+      }
+
+      div[data-key="icon${count}"] > h2,
+      div[data-key="colorBoolean${count}"] > h2,
+      div[data-key="color${count}"] > h2,
+      div[data-key="tagsList${count}"] > h2 {
+          display: none !important;
+      }
+    `
+  }
+  logseq.provideStyle(settingsCSS)
+
 
   //ツールバーに設定画面を開くボタンを追加
   logseq.App.registerUIItem('toolbar', {
@@ -104,6 +134,7 @@ export const provideStyle = () => {
   if (logseq.settings!.booleanFunction === false) return;
 
   let printCSS = "";
+  let settingsCSS = "";
 
   //サンプル
   // &[data-refs-self*='"@page']>.flex.flex-row.pr-2 .bullet-container .bullet:before {
@@ -115,18 +146,20 @@ export const provideStyle = () => {
 
   //12個複製する
   let tagsListFull: string[] = [];
-  for (let i = 1; i < 13; i++) {
-    //二桁にしたい
+  for (let i = 1; i <= 12; i++) {
     const count = ("0" + i).slice(-2);
     const { outCSS, outTagsList } = eachCreateCSS(count);
     tagsListFull = tagsListFull.concat(outTagsList);
     printCSS += outCSS;
+
+    settingsCSS += eachCreateSettingCSS(count);
   }
 
   if (printCSS !== "" && tagsListFull.length > 0) {
     //動的CSS
     logseq.provideStyle({
       key: 'bullet-point-custom-icon', style: `
+    ${settingsCSS}
     body>div#root>div>main>div#app-container {
       ${logseq.settings!.booleanAtMarkTagHidden === true ? `
       /*Optional: hide tags with @*/
@@ -159,16 +192,23 @@ export const provideStyle = () => {
     }
     ` });
   }
-
 };
 
+
+const eachCreateSettingCSS = (count: string) => {
+  return `
+    div[data-key="icon${count}"]:has(+ div[data-key="colorBoolean${count}"] > label > input[type="checkbox"]:checked) > label {
+      color: ${logseq.settings![`color${count}`]};
+    }
+  `
+}
 
 const eachCreateCSS = (count: string, iconOff?: boolean) => {
   let outCSS = "";
   //各行が空でないこと
   const outTagsList: string[] = (logseq.settings![`tagsList${count}`].includes("\n") ? logseq.settings![`tagsList${count}`].split("\n") : [logseq.settings![`tagsList${count}`]]).filter((tag) => tag !== "");
   if ((iconOff === false && logseq.settings![`icon${count}`] !== "") || outTagsList.length > 0) {
-    outCSS = `&:is(${outTagsList.map((tag) => `${logseq.settings!.booleanHierarchyParentTag === false ? `:not([data-refs-self*='${tag}/' i])` : ""}[data-refs-self*='"${tag}"' i]`).join(",")})>.flex.flex-row.pr-2 .bullet-container .bullet:before {
+    outCSS += `&:is(${outTagsList.map((tag) => `${logseq.settings!.booleanHierarchyParentTag === false ? `:not([data-refs-self*='${tag}/' i])` : ""}[data-refs-self*='"${tag}"' i]`).join(",")})>.flex.flex-row.pr-2 .bullet-container .bullet:before {
         content: "${tableIconNonUnicode(count)}" !important;
         ${logseq.settings![`colorBoolean${count}`] === true ? `color: ${logseq.settings![`color${count}`]};` : ""}
       }
