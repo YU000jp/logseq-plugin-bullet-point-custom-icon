@@ -96,10 +96,13 @@ const main = () => {
 
       div[data-key="icon${count}"],
       div[data-key="colorBoolean${count}"],
-      div[data-key="color${count}"],
-      div[data-key="tagsList${count}"] {
+      div[data-key="color${count}"] {
         vertical-align: middle;
         padding: 10px 0px 10px 0px !important;
+      }
+      div[data-key="tagsList${count}"] {
+        vertical-align: middle;
+        padding: 5px 0px 5px 0px !important;
       }
 
       div[data-key="icon${count}"] > h2,
