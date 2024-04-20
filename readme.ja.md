@@ -45,7 +45,7 @@ Logseq Marketplaceからインストール
 1. このプラグインは、Logseq の DOM 構造に依存しています。Logseq のバージョン更新により DOM 構造が変更された場合、スタイルが適用されない場合があります。CSSを調整して対応します。何か気づいたら、issueを提起してください。
 
 - おすすめ
-  - [🎨パネルカラリングプラグイン](https://github.com/YU000jp/logseq-plugin-panel-coloring)
+  - [🎨Panel Coloring プラグイン](https://github.com/YU000jp/logseq-plugin-panel-coloring)
     > 指定したページやタグ付けされたブロックを色分けして強調表示します。
 
 ## 先行技術とクレジット
