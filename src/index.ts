@@ -23,39 +23,80 @@ const main = () => {
   /* side block */
   provideStyle();
 
+
+  let settingsCSS = ''
+  for (let i = 1; i <= 12; i++) {
+    const count = ('0' + i).slice(-2)
+
+    settingsCSS += `
+      & div[data-key="colorBoolean${count}"],
+      & div[data-key="color${count}"],
+      & div[data-key="tagsList${count}"] {
+        float: left;
+      }
+
+      & div[data-key="icon${count}"] {
+        clear: left;
+        float: left;
+      }
+
+      & div[data-key="icon${count}"],
+      & div[data-key="colorBoolean${count}"],
+      & div[data-key="color${count}"] {
+        vertical-align: middle;
+        padding: 10px 0px 10px 0px !important;
+      }
+      & div[data-key="tagsList${count}"] {
+        vertical-align: middle;
+        padding: 5px 0px 5px 0px !important;
+      }
+
+      & div[data-key="icon${count}"] > h2,
+      & div[data-key="colorBoolean${count}"] > h2,
+      & div[data-key="color${count}"] > h2,
+      & div[data-key="tagsList${count}"] > h2 {
+          display: none !important;
+      }
+    `
+  }
+
   //常時適用CSS
   //プラグイン設定の見た目を整える
   logseq.provideStyle(`
   body>div {
-    &#root>div>main {
-      & article>div[data-id="logseq-plugin-bullet-point-custom-icon"] {
-        & div.heading-item {
-          margin-top: 3em;
-          border-top-width: 1px;
-          padding-top: 1em;
+    &#root>div>main article>div[data-id="logseq-plugin-bullet-point-custom-icon"] {
+      & div.heading-item {
+        margin-top: 3em;
+        border-top-width: 1px;
+        padding-top: 1em;
+      }
+
+      & label.form-control {
+        &>input[type="text"].form-input {
+          width: 65px;
+          font-size: 1.3em;
         }
-  
-        & label.form-control {
-          &>input[type="text"].form-input {
-            width: 65px;
-            font-size: 1.3em;
-          }
-  
-          &>textarea.form-input {
-            width: 420px;
-            height: 4em;
-          }
+
+        &>textarea.form-input {
+          width: 420px;
+          height: 4em;
         }
-  
-        & div.desc-item {
-          & p {
-            margin-top: 0.5em;
-            margin-bottom: 0.5em;
-          }
+      }
+
+      & div.desc-item {
+        & p {
+          margin-top: 0.5em;
+          margin-bottom: 0.5em;
         }
-        & div.desc-item[data-key^="icon"] label input.form-input {
-            font-family: 'tabler-icons';
-        }
+      }
+      & div.desc-item[data-key^="icon"] label input.form-input {
+          font-family: 'tabler-icons';
+      }
+
+      ${settingsCSS}
+
+      & div[data-key="headingTablerIconCopy"] {
+        clear: left;
       }
     }
   
@@ -81,39 +122,6 @@ const main = () => {
     }
   }
   `);
-
-  let settingsCSS = ''
-  for (let i = 1; i <= 12; i++) {
-    const count = ('0' + i).slice(-2)
-
-    settingsCSS += `
-      div[data-key="icon${count}"],
-      div[data-key="colorBoolean${count}"],
-      div[data-key="color${count}"],
-      div[data-key="tagsList${count}"] {
-        display: inline-block;
-      }
-
-      div[data-key="icon${count}"],
-      div[data-key="colorBoolean${count}"],
-      div[data-key="color${count}"] {
-        vertical-align: middle;
-        padding: 10px 0px 10px 0px !important;
-      }
-      div[data-key="tagsList${count}"] {
-        vertical-align: middle;
-        padding: 5px 0px 5px 0px !important;
-      }
-
-      div[data-key="icon${count}"] > h2,
-      div[data-key="colorBoolean${count}"] > h2,
-      div[data-key="color${count}"] > h2,
-      div[data-key="tagsList${count}"] > h2 {
-          display: none !important;
-      }
-    `
-  }
-  logseq.provideStyle(settingsCSS)
 
 
   //ツールバーに設定画面を開くボタンを追加

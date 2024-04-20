@@ -45,20 +45,6 @@ export const settingsTemplate = async (): Promise<SettingSchemaDesc[]> => {
             default: "",
             description: t("Press the shortcut key and enter from the selection screen, or copy emoji on the site to clipboard. ") + "https://emojilo.com/ ",
         },
-        {//Tabler iconの場合は、プラグインをインストールして、アイコンをコピーする
-            key: "headingTablerIconCopy",
-            type: "heading",
-            title: t("Use Tabler icon"),
-            default: "",
-            description: t("Install `Tabler picker` plugin. Then copy icons to clipboard."),
-        },
-        {//Tabler iconプラグインがインストールされていれば、呼び出す
-            key: "callTablerIconPlugin",
-            type: "boolean",
-            title: t("Call Tabler picker plugin"),
-            default: false,
-            description: t("If enable the plugin, call it from here."),
-        }
     ];
 
     //12種類のアイコンを設定する
@@ -94,14 +80,13 @@ export const settingsTemplate = async (): Promise<SettingSchemaDesc[]> => {
     settingArray.push({
         key: 'headingIcons',
         type: 'heading',
-        title: 'Icons configuration',
+        title: t('Icons configuration'),
         default: '',
         description: (preferredLanguage === 'ja' ? `
         ・アイコンとして、絵文字もしくは1文字を指定します。<br/>
         <small>(絵文字の入力ショートカットキーは、Win + .、Mac: cmd + ctrl + スペース)</small><br/>
         <small>Tabler アイコンを使いたい場合は、アイコン コード (例: \eaad) で指定してください。</small><br/>
-        ・チェックボタンによって有効/無効が切り替わります。<br/>
-        ・色が選択できますが、絵文字に対して効力がありません。<br/>
+        ・色をつけるかどうかのチェックボタンがあります。色が選択できますが、絵文字に対して効力がありません。<br/>
         ・テキスト領域で「#」なしでタグを指定します。改行で区切って複数のタグを指定してください。<br/>
         <small>「@」を先頭につけると、編集時以外は消すことが可能です。</small><br/>
         
@@ -109,8 +94,7 @@ export const settingsTemplate = async (): Promise<SettingSchemaDesc[]> => {
         ・Specify a pictogram or a single character as the icon. <br/>
         <small>(Emoji input shortcut key: Win + ., Mac: cmd + ctrl + space)</small><br/>
         <small>If you want to use a Tabler icon, specify it with an icon code (e.g. \eaad). </small><br/>
-        ・Enable/disable is switched by the check button. <br/>
-        ・You can select the color, but it has no effect on the emoji. <br/>
+        ・There is a check button to check whether to add color. You can select the color, but it has no effect on the emoji. <br/>
         -Specify the tag without "#" in the text area. Specify multiple tags separated by line breaks. <br/>
         <small>If you add "@" at the beginning, it can be deleted except when editing. </small><br/>
         `).trim(),
@@ -127,6 +111,14 @@ export const settingsTemplate = async (): Promise<SettingSchemaDesc[]> => {
                 default: hash[Object.keys(hash)[i]],
             },
             {
+                key: `tagsList${count}`,
+                type: "string",
+                inputAs: "textarea",
+                title: t("Tags to set the icon"),
+                description: '',
+                default: Object.keys(hash)[i] + "\n",
+            },
+            {
                 key: `colorBoolean${count}`,
                 type: "boolean",
                 title: t("Colorize?"),
@@ -141,17 +133,24 @@ export const settingsTemplate = async (): Promise<SettingSchemaDesc[]> => {
                 description: '',
                 default: "#32A482",
             },
-            {
-                key: `tagsList${count}`,
-                type: "string",
-                inputAs: "textarea",
-                title: t("Tags to set the icon"),
-                description: '',
-                default: Object.keys(hash)[i] + "\n",
-            },
         );
     }
-
+    settingArray.push(
+        {//Tabler iconの場合は、プラグインをインストールして、アイコンをコピーする
+            key: "headingTablerIconCopy",
+            type: "heading",
+            title: t("Use Tabler icon"),
+            default: "",
+            description: t("Install `Tabler picker` plugin. Then copy icons to clipboard."),
+        },
+        {//Tabler iconプラグインがインストールされていれば、呼び出す
+            key: "callTablerIconPlugin",
+            type: "boolean",
+            title: t("Call Tabler picker plugin"),
+            default: false,
+            description: t("If enable the plugin, call it from here."),
+        }
+    );
     return settingArray;
 };
 
