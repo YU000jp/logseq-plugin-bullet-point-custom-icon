@@ -63,78 +63,78 @@ export const settingsTemplate = async (): Promise<SettingSchemaDesc[]> => {
 
     //12種類のアイコンを設定する
     const { preferredLanguage } = await logseq.App.getUserConfigs() as AppUserConfigs;
-    const hash = preferredLanguage === "ja" ? {
-        "@赤": "🔴",           //1
-        "@オレンジ": "🟠",      //2
-        "@黄色": "🟡",         //3
-        '@ページ': '\\eaa4',    //4
-        '@フォルダ': '\\eaad',  //5
-        '@タグ': '\\eb34',     //6
-        '@疑問': '\\eb1c',     //7
-        '@リンク': '\\eade',   //8
-        '@索引': '\\eb6b',     //9
-        '@アイデア': '\\ea51',  //10
-        '@人物': '\\ef68',     //11
-        '@本': '\\ea39',      //12
-    } :
-        {
-            "@red": "🔴",           //1
-            "@orange": "🟠",        //2
-            "@yellow": "🟡",        //3
-            '@page': '\\eaa4',      //4
-            '@folder': '\\eaad',    //5
-            '@tag': '\\eb34',       //6
-            '@query': '\\eb1c',     //7
-            '@link': '\\eade',      //8
-            '@index': '\\eb6b',     //9
-            '@idea': '\\ea51',      //10
-            '@person': '\\ef68',    //11
-            '@book': '\\ea39',      //12
-        };
+    const hash = preferredLanguage === 'ja' ? {
+        '@赤': '🔴',             //1
+        '@オレンジ': '🟠',        //2
+        '@黄色': '🟡',           //3
+        '@ページ': '\\eaa4',      //4
+        '@フォルダ': '\\eaad',    //5
+        '@タグ': '\\eb34',       //6
+        '@疑問': '\\eb1c',       //7
+        '@リンク': '\\eade',      //8
+        '@索引': '\\eb6b',       //9
+        '@アイデア': '\\ea51',    //10
+        '@人物': '\\ef68',       //11
+        '@本': '\\ea39',         //12
+    } : {
+        '@red': '🔴',           //1
+        '@orange': '🟠',        //2
+        '@yellow': '🟡',        //3
+        '@page': '\\eaa4',      //4
+        '@folder': '\\eaad',    //5
+        '@tag': '\\eb34',       //6
+        '@query': '\\eb1c',     //7
+        '@link': '\\eade',      //8
+        '@index': '\\eb6b',     //9
+        '@idea': '\\ea51',      //10
+        '@person': '\\ef68',    //11
+        '@book': '\\ea39',      //12
+    };
 
-    //12個複製する
+    settingArray.push({
+        key: 'headingIcons',
+        type: 'heading',
+        title: 'Icons configuration',
+        default: '',
+        description: `
+            For Tabler-icons use icon code (e.g. \`\\eaad\`)<br/>
+            Or use one character mark or Emoji (\`Win + .\`, Mac: \`cmd + ctrl + space\`)<br/>
+            In text area specify one or more tags separated by line breaks. \`@\` is optional.
+        `.trim(),
+    })
+
     for (let i = 0; i < 12; i++) {
-        //二桁にしたい
         const count = ("0" + (i + 1)).slice(-2);
         settingArray.push(
             {
-                key: `heading${count}`,
-                type: "heading",
-                title: `No. ${count}`,
-                default: "",
-                description: t("Bullets in blocks with that tag are effected."),
-            },
-            {
                 key: `icon${count}`,
                 type: "string",
-                title: t("Tabler-icon or Emoji icon (`Win + .` / Mac: `cmd + ctrl + space`)"),
-                //一文字のみ
-                description: t("ex. `\\eaad`(Tabler-icon code) or one character(mark) only"),
+                title: t("Tabler-icon or Emoji"),
+                description: '',
                 default: hash[Object.keys(hash)[i]],
-            },
-            {
-                key: `tagsList${count}`,
-                type: "string",
-                inputAs: "textarea",
-                title: t("Specify one or more tags to be applied to the icon"),
-                description: t("Separated by line breaks. Without `#`. Not must include `@`."),
-                default: Object.keys(hash)[i] + "\n",
             },
             {
                 key: `colorBoolean${count}`,
                 type: "boolean",
                 title: t("Colorize?"),
-                //Tabler-iconの場合のみ
-                description: t("Tabler-icon only"),
+                description: '',
                 default: false,
             },
             {
                 key: `color${count}`,
                 type: "string",
                 inputAs: "color",
-                title: t("Specify the color of the icon"),
-                description: t("Tabler-icon only"),
+                title: t("Color"),
+                description: '',
                 default: "#32A482",
+            },
+            {
+                key: `tagsList${count}`,
+                type: "string",
+                inputAs: "textarea",
+                title: t("Tags to set the icon"),
+                description: '',
+                default: Object.keys(hash)[i] + "\n",
             },
         );
     }
@@ -236,4 +236,3 @@ export const reset = (toolbarUpdate?: boolean) => {
     }, 120);
 
 };
-
