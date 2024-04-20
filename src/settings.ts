@@ -77,7 +77,8 @@ export const settingsTemplate = async (): Promise<SettingSchemaDesc[]> => {
         default: '',
         description: (preferredLanguage === 'ja' ? `
         ・アイコンとして、絵文字もしくは1文字を指定します。<br/>
-        <small>(絵文字の入力ショートカットキーは、Win + .、Mac: cmd + ctrl + スペース) / 絵文字検索 https://emojilo.com/</small><br/>
+        <small>(絵文字の入力ショートカットキーは、Win + .、Mac: cmd + ctrl + スペース)<br/>
+        絵文字検索 https://emojilo.com/</small><br/>
         <small>Tabler アイコンを使いたい場合は、アイコン コード (例: \eaad) で指定してください。</small><br/>
         ・色をつけるかどうかのチェックボタンがあります。色が選択できますが、絵文字に対して効力がありません。<br/>
         ・テキスト領域で「#」なしでタグを指定します。改行で区切って複数のタグを指定してください。<br/>
@@ -85,7 +86,8 @@ export const settingsTemplate = async (): Promise<SettingSchemaDesc[]> => {
         
         ` : `
         ・Specify a pictogram or a single character as the icon. <br/>
-        <small>(Emoji input shortcut key: Win + ., Mac: cmd + ctrl + space) / Emoji search https://emojilo.com/</small><br/>
+        <small>(Emoji input shortcut key: Win + ., Mac: cmd + ctrl + space)<br/>
+        Emoji search https://emojilo.com/</small><br/>
         <small>If you want to use a Tabler icon, specify it with an icon code (e.g. \eaad). </small><br/>
         ・There is a check button to check whether to add color. You can select the color, but it has no effect on the emoji. <br/>
         -Specify the tag without "#" in the text area. Specify multiple tags separated by line breaks. <br/>
