@@ -1,6 +1,6 @@
-# Logseq プラグイン: 箇条書き(・)のカスタムアイコン #️⃣
+# Logseq プラグイン: Bullet Point Custom Icon #️⃣
 
-[English](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon) | [日本語](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/blob/main/readme.ja.md)
+箇条書きのカスタムアイコン [English](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon) | [日本語](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/blob/main/readme.ja.md)
 
 - 特定のタグをつけると、そのブロックの(・)にカスタムアイコンを適用します。絵文字 もしくは Tablerアイコン を指定します。
 
@@ -19,7 +19,7 @@
 
 ---
 
-## 始めに
+## はじめに
 
 Logseq Marketplaceからインストール
   - 右上のツールバーで [`---`] をクリックして [`プラグイン`] を開きます。`マーケットプレイス` を選択し、検索フィールドに `Bullet` と入力し、検索結果から選択してインストールします。
@@ -34,10 +34,6 @@ Logseq Marketplaceからインストール
   > Tablerアイコンを使用する場合、[`Tabler picker` プラグイン](https://github.com/yoyurec/logseq-tabler-picker) をインストールして有効にする必要があります。
 - @ を含むタグは、編集中以外は非表示にできます。@を含まない既存のタグも使用できます。
 
-おすすめ
-- [🎨パネルカラリングプラグイン](https://github.com/YU000jp/logseq-plugin-panel-coloring)
-  > 指定したページやタグ付けされたブロックを色分けして強調表示します。
-
 ---
 
 ## ショーケース / 質問 / アイデア / ヘルプ
@@ -47,6 +43,10 @@ Logseq Marketplaceからインストール
 1. "Flow Nord" テーマを使用する場合、テキストと重なってしまう https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/discussions/3
 
 1. このプラグインは、Logseq の DOM 構造に依存しています。Logseq のバージョン更新により DOM 構造が変更された場合、スタイルが適用されない場合があります。CSSを調整して対応します。何か気づいたら、issueを提起してください。
+
+- おすすめ
+  - [🎨パネルカラリングプラグイン](https://github.com/YU000jp/logseq-plugin-panel-coloring)
+    > 指定したページやタグ付けされたブロックを色分けして強調表示します。
 
 ## 先行技術とクレジット
 

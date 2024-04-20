@@ -34,9 +34,6 @@ Install from Logseq Marketplace
   > If use Tabler-icon, need to install and enable [`Tabler picker` plugin](https://github.com/yoyurec/logseq-tabler-picker).
 - Tags that include @ can be hidden except when being edited, in default. Existing tags without @ are also possible.
 
-Recommend
-- [🎨Panel Coloring plugin](https://github.com/YU000jp/logseq-plugin-panel-coloring)
-  > Accentuate specified pages or tagged blocks by coloring.
 
 ---
 
@@ -47,6 +44,10 @@ Recommend
 1. Uses "Flow Nord" theme, overlaps with text https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/discussions/3
 
 1. This plugin relies on Logseq's DOM (Document Object Model) structure. If the DOM structure changes due to a Logseq version update, styles may not be applied. We will adjust the CSS to deal with it. If you notice something, please raise an issue.
+
+- Recommend
+  - [🎨Panel Coloring plugin](https://github.com/YU000jp/logseq-plugin-panel-coloring)
+    > Accentuate specified pages or tagged blocks by coloring.
 
 ## Prior art & Credit
 
