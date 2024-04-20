@@ -1,3 +1,16 @@
+# [1.1.0](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.0.3...v1.1.0) (2024-04-20)
+
+
+### Bug Fixes
+
+* bullet on selected block ([18c52f1](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/18c52f10aaada47ae069c2c1ade434d4a285c2b3))
+* style css for settings ([27084b6](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/27084b6542d9e0b409f04082d8ea3ec79e2e053f))
+
+
+### Features
+
+* pretty settings ([b2926a4](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/b2926a4ffe87a5d2572bd7c832aba2dc7dab1fdc))
+
 ## [1.0.3](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.0.2...v1.0.3) (2023-11-06)
 
 
