@@ -10,8 +10,6 @@
   "Hide the tag of including `@` ? (except when editing) If use a tag that includes `@` to distinguish it from a normal tag": "'@'を含むタグを非表示にしますか? (編集時を除く) 通常のタグと区別するために「@」を含むタグを使用する場合",
   "Match parent tag? (if the specified tag contains Hierarchy)": "親タグにマッチさせるかどうか (指定したタグに 階層 が含まれる場合)",
   "Large icon?": "大きなアイコンにするかどうか",
-  "Use Emoji icon": "絵文字アイコンを使う場合",
-  "Press the shortcut key and enter from the selection screen, or copy emoji on the site to clipboard. ": "ショートカットキーを押して選択画面から入力するか、サイト上の絵文字をクリップボードにコピーします。",
   "Use Tabler icon": "Tablerアイコンを使う場合",
   "Install `Tabler picker` plugin. Then copy icons to clipboard.": "「Tabler picker」プラグインをインストールします。次に、アイコンをクリップボードにコピーします。",
   "Call Tabler picker plugin": "Tabler picker プラグイン",
