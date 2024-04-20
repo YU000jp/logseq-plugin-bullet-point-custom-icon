@@ -96,11 +96,24 @@ export const settingsTemplate = async (): Promise<SettingSchemaDesc[]> => {
         type: 'heading',
         title: 'Icons configuration',
         default: '',
-        description: `
-            For Tabler-icons use icon code (e.g. \`\\eaad\`)<br/>
-            Or use one character mark or Emoji (\`Win + .\`, Mac: \`cmd + ctrl + space\`)<br/>
-            In text area specify one or more tags separated by line breaks. \`@\` is optional.
-        `.trim(),
+        description: (preferredLanguage === 'ja' ? `
+        ・アイコンとして、絵文字もしくは1文字を指定します。<br/>
+        <small>(絵文字の入力ショートカットキーは、Win + .、Mac: cmd + ctrl + スペース)</small><br/>
+        <small>Tabler アイコンを使いたい場合は、アイコン コード (例: \eaad) で指定してください。</small><br/>
+        ・チェックボタンによって有効/無効が切り替わります。<br/>
+        ・色が選択できますが、絵文字に対して効力がありません。<br/>
+        ・テキスト領域で「#」なしでタグを指定します。改行で区切って複数のタグを指定してください。<br/>
+        <small>「@」を先頭につけると、編集時以外は消すことが可能です。</small><br/>
+        
+        ` : `
+        ・Specify a pictogram or a single character as the icon. <br/>
+        <small>(Emoji input shortcut key: Win + ., Mac: cmd + ctrl + space)</small><br/>
+        <small>If you want to use a Tabler icon, specify it with an icon code (e.g. \eaad). </small><br/>
+        ・Enable/disable is switched by the check button. <br/>
+        ・You can select the color, but it has no effect on the emoji. <br/>
+        -Specify the tag without "#" in the text area. Specify multiple tags separated by line breaks. <br/>
+        <small>If you add "@" at the beginning, it can be deleted except when editing. </small><br/>
+        `).trim(),
     })
 
     for (let i = 0; i < 12; i++) {
