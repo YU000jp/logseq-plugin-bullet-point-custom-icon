@@ -39,7 +39,7 @@ Install from Logseq Marketplace
 
 ## Showcase / Questions / Ideas / Help
 
-> Go to the [discussion](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/discussions) tab to ask and find this kind of things.
+> Go to the [Discussions](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/discussions) tab to ask and find this kind of things.
 
 1. Uses "Flow Nord" theme, overlaps with text https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/discussions/3
 
