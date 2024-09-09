@@ -2,6 +2,9 @@
 
 - 特定のタグをつけると、そのブロックの(・)にカスタムアイコンを適用します。絵文字 もしくは Tablerアイコン を指定します。
 
+> [!WARNING]
+>現在、このプラグインはLogseq dbバージョンでは動作しません。
+
 <div align="right">
   
 [English](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon)/[日本語](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/blob/main/readme.ja.md)
