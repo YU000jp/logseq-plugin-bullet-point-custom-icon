@@ -28,7 +28,7 @@ export const settingsTemplate = async (): Promise<SettingSchemaDesc[]> => {
             type: "boolean",
             title: t("Match parent tag? (if the specified tag contains Hierarchy)"),
             default: false,
-            description: "default: false",
+            description: "default: false / ⚠️Not supports Logseq DB model (file-based graph)",
         },
         {//アイコンの大きさを大きくする
             key: "booleanIconLarge",
