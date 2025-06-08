@@ -178,11 +178,6 @@ export const provideStyle = () => {
   let printCSS = ""
   let settingsCSS = ""
 
-  //サンプル
-  // &[data-refs-self*='"@page']>.flex.flex-row.pr-2 .bullet-container .bullet:before {
-  //     content: "\eaa4" !important;
-  //     color: red;
-  // }
 
   //設定に合わせて生成するCSS
 
@@ -211,13 +206,32 @@ export const provideStyle = () => {
 
             ${logseqVersionMd === true ? (`
             &:is(${[...new Set(tagsListFull)].map((tag) => `${logseq.settings!.booleanHierarchyParentTag === false ? `:not([data-refs-self*='${tag}/' i])` : ""}[data-refs-self*='"${tag}"' i]`).join(",\n            ")}) {
-              ${logseq.settings!.booleanIconLarge === "medium" ?
-          "&>.flex.flex-row.pr-2 .bullet-container .bullet:before {font-size: 1.2em;top: -10px!important;left: -7px!important;}"
-          : logseq.settings!.booleanIconLarge === "large" ?
-            "&>.flex.flex-row.pr-2 .bullet-container .bullet:before {font-size: 1.5em;top:-13px!important;left:-8.5px!important;}"
-            : ""}
-            }  
-            }`) : // DBモデル
+               ${`
+                &>div.block-main-container>div.block-control-wrap {
+                    &:has(span.bullet-closed)>a.block-control>span.control-hide {
+                        display: unset;
+                    }
+                    &>a.bullet-link-wrap>span.bullet-container {
+                        &>span.bullet:before {
+                              ${logseq.settings!.booleanIconLarge === "small" ? ""
+          : logseq.settings!.booleanIconLarge === "medium" ? "font-size: 1.2em;"
+            : "font-size: 1.5em;"};
+                              font-family: 'tabler-icons';
+                              position: relative;
+                              ${logseq.settings!.booleanIconLarge === "small" ? `top: -9.5px;
+                              left: -9px;`
+          : logseq.settings!.booleanIconLarge === "medium" ? `top: -10px;
+                              left: -7.8px;`: `top: -14px;
+                              left: -12px;`}
+                        }
+                        &.bullet-closed {
+                            opacity: 0.5;
+                            font-size: 0.5em;
+                        }
+                    }
+                }
+            `}
+        }`) : // DBモデル
         (`${[...new Set(tagsListFull)].map((tag) => `&:has(>div.block-main-container>div.block-control-wrap+div>div.block-main-content>div>div.block-content-or-editor-wrap>div.block-content-or-editor-inner>div>div.block-content-wrapper>div.block-content>div.block-content-inner>div.block-head-wrap>div>span.block-title-wrap>span>span.preview-ref-link>a[data-ref='${tag}' i])`).join(",\n            ")} {
                   &>div>div.block-control-wrap {
                       &:has(span.bullet-closed)>a.block-control>span.control-hide {
@@ -279,14 +293,14 @@ const eachCreateCSS = (count: string, iconOff?: boolean) => {
   if ((iconOff === false && logseq.settings![`icon${count}`] !== "") || outTagsList.length > 0) {
     outCSS += logseqVersionMd === true ?
       `
-      &:is(${outTagsList.map((tag) => `${logseq.settings!.booleanHierarchyParentTag === false ?
+          &:is(${outTagsList.map((tag) => `${logseq.settings!.booleanHierarchyParentTag === false ?
         `:not([data-refs-self*='${tag}/' i])`
-        : ""}[data-refs-self*='"${tag}"' i]`).join(",")})>.flex.flex-row.pr-2 .bullet-container .bullet:before {
-        content: "${tableIconNonUnicode(count)}" !important;
-        ${logseq.settings![`colorBoolean${count}`] === true ?
+        : ""}[data-refs-self*='"${tag}"' i]`).join(",")})>div.block-main-container>div.block-control-wrap>a.bullet-link-wrap>span.bullet-container>span.bullet:before {
+                  content: "${tableIconNonUnicode(count)}" !important;
+                  ${logseq.settings![`colorBoolean${count}`] === true ?
         `color: ${logseq.settings![`color${count}`]};`
         : ""}
-      }
+          }
       ` : // DBモデル
       `${outTagsList.map((tag) => `
             &:has(>div.block-main-container>div.block-control-wrap+div>div.block-main-content>div>div.block-content-or-editor-wrap>div.block-content-or-editor-inner>div>div.block-content-wrapper>div.block-content>div.block-content-inner>div.block-head-wrap>div>span.block-title-wrap>span>span.preview-ref-link>a[data-ref='${tag}' i])`).join("        ,\n")} {
