@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.2.0...v1.2.1) (2025-06-08)
+
+
+### Bug Fixes
+
+* **bug:** When Logseq DB graph [#11](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/issues/11) ([d204322](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/d204322e4b92a6c343fd1e7dd02ed2f60a61ecb9))
+
 # [1.2.0](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.1.0...v1.2.0) (2025-06-08)
 
 
