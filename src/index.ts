@@ -368,7 +368,7 @@ const openPopupFromToolbar = () => {
   setTimeout(() => {
     //設定画面を開くボタンをクリックしたら、設定画面を開く
     const showSettingsUI = parent.document.getElementById("bullet-point-custom-icon--showSettingsUI") as HTMLButtonElement | null
-    if (showSettingsUI) showSettingsUI.addEventListener("click", () => logseq.showSettingsUI(), { once: true })
+    if (showSettingsUI) showSettingsUI.addEventListener("click", () => logseq.showSettingsUI())
   }, 50)
 }
 
