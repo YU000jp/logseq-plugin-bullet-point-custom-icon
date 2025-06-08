@@ -2,8 +2,8 @@
 
 - Apply custom icons for bullets with specific tags. Choice Tabler-icon or emoji.
 
-> [!WARNING]
-This plugin does not work with Logseq db version now.
+> [!NOTE]
+This plugin works in Logseq db model. (md graph only)
 
 <div align="right">
  
