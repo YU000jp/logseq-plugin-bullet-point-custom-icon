@@ -2,7 +2,6 @@ import '@logseq/libs' //https://plugins-doc.logseq.com/
 import { settingsTemplate, settingChanged } from './settings'
 import { setup as l10nSetup, t } from "logseq-l10n" //https://github.com/sethyuan/logseq-l10n
 import ja from "./translations/ja.json"
-import CSS from './bullet.css?inline'
 import { tableIconNonUnicode, tablerIconGetUnicode } from './lib'
 import { copyEvent } from './lib'
 import { AppInfo } from '@logseq/libs/dist/LSPlugin.user'
@@ -218,7 +217,6 @@ export const provideStyle = () => {
             "&>.flex.flex-row.pr-2 .bullet-container .bullet:before {font-size: 1.5em;top:-13px!important;left:-8.5px!important;}"
             : ""}
             }  
-              ${CSS}
             }`) : // DBモデル
         (`${[...new Set(tagsListFull)].map((tag) => `&:has(>div.block-main-container>div.block-control-wrap+div>div.block-main-content>div>div.block-content-or-editor-wrap>div.block-content-or-editor-inner>div>div.block-content-wrapper>div.block-content>div.block-content-inner>div.block-head-wrap>div>span.block-title-wrap>span>span.preview-ref-link>a[data-ref='${tag}' i])`).join(",\n            ")} {
                   &>div>div.block-control-wrap {
