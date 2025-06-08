@@ -4,6 +4,19 @@
 ### Bug Fixes
 
 * **bug:** Cannnot work a button for opening settings ([902c4d0](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/902c4d0a53c2fa694458d6e4b70be5a912c55a9e))
+* **bug:** For Logseq file-based model [#11](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/issues/11) ([46ed431](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/46ed43138848ecef1a9a3f53b0e61ec8586c9077))
+
+
+### Features
+
+* Compatibility for DB model (file-based graph only) [#11](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/issues/11) ([87e4ec3](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/87e4ec3ca8427ded23dbeec9be282e368e676f9c))
+
+# [1.2.0](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.1.0...v1.2.0) (2025-06-08)
+
+
+### Bug Fixes
+
+* **bug:** Cannnot work a button for opening settings ([902c4d0](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/902c4d0a53c2fa694458d6e4b70be5a912c55a9e))
 
 
 ### Features
