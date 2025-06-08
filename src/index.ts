@@ -14,11 +14,10 @@ export const booleanLogseqVersionMd = () => logseqVersionMd //バージョンチ
 export const booleanDbGraph = () => logseqDbGraph //バージョンチェック用
 
 /* main */
-const main = async (notFirst?: boolean) => {
+const main = async () => {
 
   // バージョンチェック
-  if (notFirst !== true)
-    logseqVersionMd = await checkLogseqVersion()
+  logseqVersionMd = await checkLogseqVersion()
   // console.log("logseq version: ", logseqVersion)
   // console.log("logseq version is MD model: ", logseqVersionMd)
   // 100ms待つ
@@ -33,8 +32,7 @@ const main = async (notFirst?: boolean) => {
   logseqDbGraph = await checkLogseqDbGraph()
   if (logseqDbGraph === true) {
     // DBグラフには対応していない
-    logseq.UI.showMsg("The ’Bullet Point Custom Icon’ plugin not supports Logseq DB graph.", "warning", { timeout: 5000 })
-    return
+    return showDbGraphIncompatibilityMsg()
   }
 
   await l10nSetup({ builtinTranslations: { ja } })
@@ -163,12 +161,13 @@ const main = async (notFirst?: boolean) => {
   //Setting changed
   settingChanged()
 
+  logseq.App.onCurrentGraphChanged(async () => {
+    logseqDbGraph = await checkLogseqDbGraph()
+    if (logseqDbGraph === true)
+      // DBグラフには対応していない
+      return showDbGraphIncompatibilityMsg()
+  })
 
-  if (notFirst !== true)
-    logseq.App.onCurrentGraphChanged(async () => {
-      logseqDbGraph = await checkLogseqDbGraph()
-      if (logseqDbGraph === false) main(true)
-    })
 }/* end_main */
 
 
@@ -415,5 +414,11 @@ const checkLogseqDbGraph = async (): Promise<boolean> => {
   } else logseqDbGraph = false
   return false
 }
+
+const showDbGraphIncompatibilityMsg = () => {
+  logseq.UI.showMsg("The ’Bullet Point Custom Icon’ plugin not supports Logseq DB graph.", "warning", { timeout: 5000 })
+  return
+}
+
 
 logseq.ready(main).catch(console.error)
