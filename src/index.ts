@@ -390,6 +390,16 @@ const checkLogseqVersion = async (): Promise<boolean> => {
   return false
 }
 // DBグラフかどうかのチェック
-const checkLogseqDbGraph = async (): Promise<boolean> => await (logseq.App as any).checkCurrentIsDbGraph() as boolean | false || false
+// DBグラフかどうかのチェック DBグラフだけtrue
+const checkLogseqDbGraph = async (): Promise<boolean> => {
+  const element = parent.document.querySelector(
+    "div.block-tags",
+  ) as HTMLDivElement | null // ページ内にClassタグが存在する  WARN:: ※DOM変更の可能性に注意
+  if (element) {
+    logseqDbGraph = true
+    return true
+  } else logseqDbGraph = false
+  return false
+}
 
 logseq.ready(main).catch(console.error)
