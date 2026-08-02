@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.2.1...v1.2.2) (2026-08-02)
+
+
+### Bug Fixes
+
+* **bug:** Use logseq.App.checkCurrentIsDbGraph for DB check ([fc41e43](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/fc41e4309d847604d21557542a90105d69357c82))
+
 ## [1.2.1](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.2.0...v1.2.1) (2025-06-08)
 
 
