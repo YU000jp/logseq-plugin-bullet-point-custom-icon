@@ -31,7 +31,7 @@ export const copyEvent = async (tag: string) => {
         //tagに空白が含まれていたら、[[ ]]で囲む
         if (tag.includes(" ")) tag = "[[" + tag + "]]"
         //contentの中に、\nが含まれている場合、一つ目の\nの前に、tagを挿入する
-        let content = currentBlock.content
+        let content = currentBlock.content ?? ""
         if (content.includes("\n")) content = content.replace("\n", " #" + tag + "\n")
         else content = content + " #" + tag
         await logseq.Editor.updateBlock(currentBlock.uuid, content, currentBlock.properties)
