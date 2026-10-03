@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.2.2...v1.2.3) (2026-10-03)
+
+
+### Bug Fixes
+
+* バージョン判定ではなくグラフ種別(API)でファイルグラフを検出し、CSS分岐はアプリ世代で判定 ([73cd2a1](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/commit/73cd2a1566bbae104dc50e745363f8c383762687))
+
 ## [1.2.2](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/compare/v1.2.1...v1.2.2) (2026-08-02)
 
 
