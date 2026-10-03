@@ -384,33 +384,35 @@ const openPopupFromToolbar = () => {
 }
 
 
-// MDモデルかどうかのチェック DBモデルはfalse
+// アプリ世代チェック:旧UI系統(MD版系統:0.10.x以下とOG 1.x)ならtrue、DB系世代(0.11.x以上/2.x)ならfalse
+// DOM構造が新旧UIで異なるため、CSSセレクタの分岐に使う(グラフ種別ではなくアプリ世代で判定)
 const checkLogseqVersion = async (): Promise<boolean> => {
-  const logseqInfo = (await logseq.App.getInfo("version")) as AppInfo | any
-  //  0.11.0もしくは0.11.0-alpha+nightly.20250427のような形式なので、先頭の3つの数値(1桁、2桁、2桁)を正規表現で取得する
-  const version = logseqInfo.match(/(\d+)\.(\d+)\.(\d+)/)
-  if (version) {
-    logseqVersion = version[0] //バージョンを取得
+  const info = (await logseq.App.getInfo()) as AppInfo | null
+  const version = typeof info?.version === "string" ? info.version : ""
+  const m = version.match(/(\d+)\.(\d+)\.(\d+)/)
+  if (m) {
+    logseqVersion = m[0] //バージョンを取得
     // console.log("logseq version: ", logseqVersion)
-
-    // もし バージョンが0.10.*系やそれ以下ならば、logseqVersionMdをtrueにする
-    if (logseqVersion.match(/0\.([0-9]|10)\.\d+/)) {
-      logseqVersionMd = true
-      // console.log("logseq version is 0.10.* or lower")
-      return true
-    } else logseqVersionMd = false
-  } else logseqVersion = "0.0.0"
+    // 0.11.x以上 または 2.x以上 はDB系世代(新UI)
+    const isDbEra = Number(m[1]) >= 2 || (Number(m[1]) === 0 && Number(m[2]) >= 11)
+    logseqVersionMd = !isDbEra
+    return logseqVersionMd
+  }
+  logseqVersion = "0.0.0"
+  logseqVersionMd = false
   return false
 }
-// DBグラフかどうかのチェック
-// DBグラフかどうかのチェック DBグラフだけtrue
+// 現在のグラフがDBグラフかどうかのチェック(公式API) DBグラフだけtrue
+// 0.10.x以下のホストにはこのAPIが存在しないが、logseq.Appは動的Proxyのため
+// メソッドのtypeofガードは効かない。rejectや非booleanが返ったらfalse(DBグラフを開けない旧アプリ)
 const checkLogseqDbGraph = async (): Promise<boolean> => {
-  const db = (await logseq.App.checkCurrentIsDbGraph()) as boolean
-  if (db) {
-    logseqDbGraph = true
-    return true
-  } else logseqDbGraph = false
-  return false
+  try {
+    const value = await logseq.App.checkCurrentIsDbGraph()
+    logseqDbGraph = typeof value === "boolean" ? value : false
+  } catch {
+    logseqDbGraph = false
+  }
+  return logseqDbGraph
 }
 
 const showDbGraphIncompatibilityMsg = () => {
